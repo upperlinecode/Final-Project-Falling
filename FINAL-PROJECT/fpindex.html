@@ -4,18 +4,20 @@
         <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
         <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
         <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+        <script src="https://cdn.rawgit.com/archilogic-com/aframe-gblock/6498b71d/dist/gblock.js"></script>
     </head>
+    
     <body>
         <a-scene>
             <img src ="Images/checkerboard-pattern.jpg" id = "finishbanner">
             <!--<a-plane static-body position= "0 -75 -4" rotation="-90 0 0" width="20" height="20" color="black" id="blackplane"></a-plane>-->
             <a-box data-cloud9-id="83" static-body="sphereRadius:NaN" position="0 -67.685 -4" src="#finishbanner" color="white" height="20" width="20" depth="4" rotation="90 0 0" id="greybox"></a-box>
             
-            <a-sky color = "lightgrey"></a-sky>
+            <a-sky color ="lightgrey"></a-sky>
             <!--<a-entity environment="preset: contact" ></a-entity>-->
             
-            <a-entity id= "goal">
-
+            <a-entity id ="goal">
+            
             </a-entity>
             <a-entity id ="hole" >
                 <a-box static-body position= "10 0 -4" color = grey height="135" width="20" rotation="0 90 0"></a-box>
@@ -24,33 +26,85 @@
                 <a-box static-body position= "0 0 -14" color = grey height="135" width="20"></a-box>
                 
                 <a-box static-body position= "0 66 2" color = darkgrey height="8" width="5" rotation="90 0 0"></a-box>
-                <a-entity id ="big objects">
-                    <a-box static-body position= "0 5 -5" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "4 24 -1" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "2 36 4" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "-4 -41 0" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "5 50 -11" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "7 -15 -7" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                </a-entity>
-                <a-box static-body position="0 -65 -4" color=blue></a-box>
-                <a-entity id ="small objects">
-                    <a-box static-body position= "0 5 -5" color = lightgrey height="2" width="2" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "4 24 -1" color = lightgrey height="2" width="2" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "2 36 4" color = lightgrey height="2" width="2" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "-4 -41 0" color = lightgrey height="2" width="2" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "5 50 -11" color = lightgrey height="2" width="2" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "7 -15 -7" color = lightgrey height="2" width="2" rotation="90 0 0"></a-box>
+                
+                <a-entity id ="obstacles">
+                    <a-entity id ="big objects">
+                        <!--<a-animation attribute="position"
+                            from="1 1 1" to="1 1 7" 
+                            direction= "alternate"
+                            repeat="indefinite"
+                            dur= "500">
+                        </a-animation>-->
+                        
+                        <a-box static-body postition= "0 0 0" color = "#1e1e1e" depth="10" width="10"></a-box></a-box>
+                        <a-box static-body postition= "0 0 0" color = "#1e1e1e" depth="10" width="10"></a-box></a-box>
+                        <a-box static-body postition= "0 0 0" color = "#1e1e1e" depth="10" width="10"></a-box></a-box>
+                    </a-entity>
+                        
+                    <a-entity id ="mid objects">
+                        <a-animation attribute="position"
+                            from="1 1 1" to="1 1 7" 
+                            direction= "alternate"
+                            repeat="indefinite"
+                            dur= "500">
+                        </a-animation>
+                            
+                        <a-box static-body position= "0 5 -5" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "4 24 -12" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "2 36 -6" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-4 -38 -10" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "5 50 -11" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "7 -15 -7" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                    </a-entity>
+                    <a-entity id ="small objects">
+                        <a-animation attribute="position"
+                            from="1 1 1" to="7 1 1" 
+                            direction= "alternate"
+                            repeat="indefinite"
+                            dur= "500">
+                        </a-animation>
+                
+                        <a-box static-body position= "0 15 -6" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "4 -24 -1" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "1 63 -8" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-4 -41 0" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "5 47 -1" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "1 -15 4" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-7 5 3" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-6 -24 -8" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-8 61 -4" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-4 -41 -7" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-9 50 -11" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-1 -15 -7" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                    </a-entity>
+                    <!--
+                    <a-box static-body position= "9 10 -4" color = darkgrey height="20" width="6" rotation="90 0 0"></a-box>
+                    <a-box static-body position= "-2 10 -11" color = darkgrey height="20" width="6" rotation="90 0 90"></a-box>
+                    <a-box static-body position= "0 10 0" color = darkgrey height="20" width="11" rotation="90 0 90"></a-box>
+                    <a-box static-body position= "-3 10 -7" color = darkgrey height="14" width="3" rotation="90 0 90"></a-box>
+                    
+                    <a-box static-body position= "0 -50 -7" color = darkgrey height="20" width="8" rotation="90 0 90"></a-box>
+                    <a-box static-body position= "-3 -50 -4" color = darkgrey height="20" width="13" rotation="90 0 0"></a-box>
+                    -->
                 </a-entity>
             </a-entity>
-            
-            <a-entity class="player" id="player"
-                camera
-                jump-ability
-                universal-controls
-                kinematic-body
-                position="0 75 6">
+            <a-entity class="player" id="player" 
+            camera 
+            jump-ability 
+            universal-controls 
+            kinematic-body
+            position="0 75 6">
+
             </a-entity>
-             <a-entity id="banner" gblock="https://poly.google.com/view/eQuFlBuITEG" position="-3.019 2.193 -5.709">
+            <a-entity>
+            <a-text id ="yawon" value="Level Complete" ></a-text>
+            </a-entity>
+            <style>
+                #yawon{
+                    font-size:50px;
+                }
+            </style>
+            <a-entity id="banner" gblock="https://poly.google.com/view/2dgkj3gozzU" position="0 10 0">
             </a-entity>
         </a-scene>
         <script type="text/javascript" src="fpindex.js"></script>

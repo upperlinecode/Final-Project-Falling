@@ -29,16 +29,18 @@
                 
                 <a-entity id ="obstacles">
                     <a-entity id ="big objects">
-                        <!--<a-animation attribute="position"
-                            from="1 1 1" to="1 1 7" 
-                            direction= "alternate"
-                            repeat="indefinite"
-                            dur= "500">
-                        </a-animation>-->
-                        
-                        <a-box static-body postition= "0 0 0" color = "#1e1e1e" depth="10" width="10"></a-box></a-box>
-                        <a-box static-body postition= "0 0 0" color = "#1e1e1e" depth="10" width="10"></a-box></a-box>
-                        <a-box static-body postition= "0 0 0" color = "#1e1e1e" depth="10" width="10"></a-box></a-box>
+                        <a-box static-body position= "0 1 -5" color = "#1e1e1e" height="10" width="10" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "0 -34 -5" color = "#1e1e1e" height="10" width="10" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "0 34 -5" color = "#1e1e1e" height="10" width="10" rotation="90 0 0"></a-box>
+                        <a-animation attribute="rotation"
+                        attribute="rotation" 
+                        dur ="3000" 
+                        fill ="none" 
+                        from ="0 0 0" 
+                        to ="0 360 0" 
+                        repeat ="indefinite" 
+                        easing ="linear"
+                        ></a-animation>
                     </a-entity>
                         
                     <a-entity id ="mid objects">
@@ -104,7 +106,7 @@
                     font-size:50px;
                 }
             </style>
-            <a-entity id="banner" gblock="https://poly.google.com/view/2dgkj3gozzU" position="0 10 0">
+            <a-entity id="banner" gblock="https://poly.google.com/view/2dgkj3gozzU" position="0 -60 0">
             </a-entity>
         </a-scene>
         <script type="text/javascript" src="fpindex.js"></script>

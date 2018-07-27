@@ -8,7 +8,7 @@
     </head>
     
     <body>
-        <a-scene>
+        <a-scene id="thescene">
             <img src ="Images/checkerboard-pattern.jpg" id = "finishbanner">
             <!--<a-plane static-body position= "0 -75 -4" rotation="-90 0 0" width="20" height="20" color="black" id="blackplane"></a-plane>-->
             <a-box data-cloud9-id="83" static-body="sphereRadius:NaN" position="0 -67.685 -4" src="#finishbanner" color="white" height="20" width="20" depth="4" rotation="90 0 0" id="greybox"></a-box>
@@ -25,7 +25,7 @@
                 <a-box static-body position= "0 0 6" color = grey height="135" width="20"></a-box>
                 <a-box static-body position= "0 0 -14" color = grey height="135" width="20"></a-box>
                 
-                <a-box dynamic-body position= "0 66 2" color = darkgrey height="8" width="5" rotation="90 0 0"></a-box>
+                <a-box static-body position= "0 66 2" color = darkgrey height="8" width="5" rotation="90 0 0"></a-box>
                 
                 <a-entity id ="obstacles">
                     <a-entity id ="big objects" position ="0 0 -4">
@@ -34,7 +34,7 @@
                         <a-box static-body position= "0 34 0" color = "#1e1e1e" height="13" width="13" rotation="90 0 0"></a-box>
                         <a-animation attribute="rotation"
                             attribute="rotation" 
-                            dur ="3000" 
+                            dur ="1000" 
                             fill ="none" 
                             from ="0 0 0" 
                             to ="0 360 0" 
@@ -53,12 +53,14 @@
                             
                         <a-box static-body position= "0 5 -5" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
                         <a-box static-body position= "4 24 -12" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-3 16 -5" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
                         <a-box static-body position= "2 36 -6" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-4 -38 -10" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
                         <a-box static-body position= "5 50 -11" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
                         <a-box static-body position= "7 -15 -7" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
-                        <a-box static-body position= "7 -50 -10" color = lightgrey height="5" width="5" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "5.5 -50 -7" color = lightgrey height="15" width="6" rotation="90 0 0"></a-box>
                     </a-entity>
+                    
                     <a-entity id ="small objects">
                         <a-animation attribute="position"
                             from="1 1 1" to="7 1 1" 
@@ -66,29 +68,51 @@
                             repeat="indefinite"
                             dur= "500">
                         </a-animation>
-                
                         <a-box static-body position= "0 15 -6" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "4 -24 -1" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
-                        <a-box static-body position= "1 63 -8" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "0 63 -8" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-4 -41 0" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "5 47 -1" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "1 -15 4" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-7 8 3" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-6 -24 -8" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-8 61 -4" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
-                        <a-box static-body position= "-2 -55 -9" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
+                        <a-box static-body position= "-2 -45 -9" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-9 50 -11" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                         <a-box static-body position= "-1 -15 -7" color = darkgrey height="2" width="2" rotation="90 0 0"></a-box>
                     </a-entity>
-                    <!--
-                    <a-box static-body position= "9 10 -4" color = darkgrey height="20" width="6" rotation="90 0 0"></a-box>
-                    <a-box static-body position= "-2 10 -11" color = darkgrey height="20" width="6" rotation="90 0 90"></a-box>
+                    
+                    <a-entity id= "walljumpdeterrents">
+                        <a-box static-body position= "-8 0 -12" width="3" depth="3"></a-box>
+                        <a-box static-body position= "-8 -20 -12" width="3" depth="3"></a-box>
+                        
+                        <a-box static-body position= "8 0 -12" width="3" depth="3"></a-box>
+                        <a-box static-body position= "8 -20 -12" width="3" depth="3"></a-box>
+                        
+                        <a-box static-body position= "8 0 -13" width="3" depth="3"></a-box>
+                        <a-box static-body position= "8 -20 -12" width="3" depth="3"></a-box>
+                    </a-entity>
+                    
+                    <a-box static-body position= "9 10 -4" color = darkgrey height="20" width="5" rotation="90 0 0"></a-box>
+                    <a-box static-body position= "-2 10 -11.5" color = darkgrey height="20" width="4.5" rotation="90 0 90"></a-box>
                     <a-box static-body position= "0 10 0" color = darkgrey height="20" width="11" rotation="90 0 90"></a-box>
-                    <a-box static-body position= "-3 10 -7" color = darkgrey height="14" width="3" rotation="90 0 90"></a-box>
+                    <a-box static-body position= "-4 10 -7" color = darkgrey height="14" width="5" rotation="90 0 90"></a-box>
                     
                     <a-box static-body position= "0 -50 -7" color = darkgrey height="20" width="8" rotation="90 0 90"></a-box>
                     <a-box static-body position= "-3 -50 -4" color = darkgrey height="20" width="13" rotation="90 0 0"></a-box>
-                    -->
+                </a-entity>
+                
+                <a-entity id="ballsofdoom">
+                    <a-sphere dynamic-body position= "0 75 -3" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "3 75 -3" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "-3 75 -3" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "0 75 -6" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "3 75 -6" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "-3 75 -6" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "0 75 -9" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "3 75 -9" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "-3 75 -9" radius= "1.5" color="black"></a-sphere>
+                    <a-sphere dynamic-body position= "0 85 -6" radius= "2.5" color="black" mass></a-sphere>
                 </a-entity>
             </a-entity>
             <a-entity class="player" id="player" 
@@ -97,11 +121,15 @@
             universal-controls 
             kinematic-body
             position="0 75 6">
-
+                <a-entity id="timer">
+                    
+                </a-text>
             </a-entity>
+            
             <a-entity>
-            <a-text id ="yawon" value="Level Complete" position="11.555 -81.582 -17.984" scale="5.039 11 -12.385"></a-text>
+                <a-text data-cloud9-id="50" id="yawon" value="Level Complete" position="8.84 -55.661 -5.323" rotation="0 270 0" scale="5 18 19.248" text="value:Level Complete!;align:center;color:#000000"></a-text>
             </a-entity>
+            
             <style>
                 #yawon{
                     font-size:50px;
@@ -112,6 +140,6 @@
             <a-entity data-cloud9-id="52" id="banner" gblock="https://poly.google.com/view/dtfi0MpW8a5" position="11.555 -81.582 -17.984" scale="5.039 11 -12.385">
             </a-entity>
         </a-scene>
-        <script type="text/javascript" src="fpindex.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>
